@@ -2,9 +2,8 @@
 <project version="4">
   <component name="ChangeListManager" verified="true">
     <list default="true" readonly="true" id="24bdfe1f-adc0-41d5-82a1-aa5f475aec6c" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Jaspit.iml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/JasperIntegration.ipr" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/JasperIntegration.iws" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/JasperIntegration.iws" afterPath="$PROJECT_DIR$/JasperIntegration.iws" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/JasperIntegration.ipr" afterPath="$PROJECT_DIR$/JasperIntegration.ipr" />
     </list>
     <ignored path=".idea/workspace.xml" />
     <ignored path="JasperIntegration.iws" />
@@ -185,36 +184,28 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="JasperIntegration" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="java" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
         </subPane>
       </pane>
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="project.structure.last.edited" value="Libraries" />
+    <property name="GenerateAntBuildDialog.generateIdeaHomeProperty" value="false" />
     <property name="GoToFile.includeJavaFiles" value="false" />
+    <property name="project.structure.last.edited" value="Artifacts" />
     <property name="project.structure.proportion" value="0.15" />
-    <property name="GoToClass.toSaveIncludeLibraries" value="false" />
-    <property name="recentsLimit" value="5" />
     <property name="MemberChooser.sorted" value="false" />
-    <property name="MemberChooser.showClasses" value="true" />
+    <property name="recentsLimit" value="5" />
+    <property name="GenerateAntBuildDialog.generateSingleFile" value="false" />
+    <property name="GenerateAntBuildDialog.inclineRuntiemClasspath" value="false" />
+    <property name="GenerateAntBuildDialog.forceTargetJdk" value="true" />
     <property name="project.structure.side.proportion" value="0.2" />
+    <property name="MemberChooser.copyJavadoc" value="false" />
+    <property name="GenerateAntBuildDialog.enableUiFormCompile" value="true" />
+    <property name="GoToClass.toSaveIncludeLibraries" value="false" />
+    <property name="MemberChooser.showClasses" value="true" />
+    <property name="GenerateAntBuildDialog.backupFiles" value="true" />
     <property name="GoToClass.includeLibraries" value="false" />
     <property name="dynamic.classpath" value="false" />
-    <property name="MemberChooser.copyJavadoc" value="false" />
   </component>
   <component name="RunManager" selected="Application.Backend">
     <configuration default="true" type="Remote" factoryName="Remote">
@@ -479,10 +470,12 @@
               <option name="proportions">
                 <list>
                   <option value="0.2" />
+                  <option value="0.5" />
                 </list>
               </option>
             </SplitterProportionsDataImpl>
           </splitter-proportions>
+          <last-edited>jasp</last-edited>
           <settings />
         </UIState>
       </state>
