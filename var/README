@@ -1,0 +1,35 @@
+
+- Think $JASP_DIR as a placeholder for the directory where tar was extracted
+
+    1. Build jaspinteg
+       ( g++ and make are required )
+
+       - Enter jaspinteg directory << cd $JASP_DIR/jaspinteg >>
+       - Seup environment << make setup >>
+       - Build Library << make command=release >>
+       - Install Library << sudo make install command=release >>
+
+    2. Build jaspext
+       ( php5-dev is required )
+
+       - Enter jaspext directory << cd $JASP_DIR/jaspext >>
+       - Phpize environment << phpize >>
+       - Configure build << ./configure --with-jaspext >>
+       - Build extension << make >>
+       - Install extension << sudo make install >>
+
+    3. Add extension
+
+       - Add the line "extension=jaspext.so" to the end of apache's php.ini (usually located at /etc/php5/apache2/php.ini)
+       - Restart Apache << /etc/init.d/apache2 restart >>
+
+    4. Start Jasper-Server
+
+       - Enter server directory << cd $JASP_DIR/jaspServer/bin >>
+       - Start Daemon << ./jasp_server.sh start >>
+
+Note: The Jasper-Server is thought to be a daemon. It's easily possible and desired to add a Init-Script for it
+      and make the symlinks for the desired runlevels. There is such a script in $JASP_DIR/jaspServer/scripts
+      called jasp_server. In Ubuntu you have to copy it to your /etc/init.d and replace the variable JASP_DIR with
+      the correct location. To create the symlinks for the run-levels you can use the command
+      << rc-update.d jasp_server defaults >>.
