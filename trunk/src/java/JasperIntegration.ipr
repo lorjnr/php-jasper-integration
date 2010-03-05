@@ -204,7 +204,7 @@
         <root url="jar://$PROJECT_DIR$/lib/commons-logging-1.0.2.jar!/" />
         <root url="jar://$PROJECT_DIR$/lib/xerces.jar!/" />
         <root url="jar://$PROJECT_DIR$/lib/commons-collections-2.1.jar!/" />
-        <root url="jar://$PROJECT_DIR$/lib/jasperreports-3.5.2.jar!/" />
+        <root url="jar://$PROJECT_DIR$/lib/jasperreports-3.0.1.jar!/" />
       </CLASSES>
       <JAVADOC />
       <SOURCES />
