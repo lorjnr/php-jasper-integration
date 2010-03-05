@@ -1,0 +1,204 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="jasperintegration" default="all">
+  
+  
+  <property file="jasperintegration.properties"/>
+  <!-- Uncomment the following property if no tests compilation is needed -->
+  <!-- 
+  <property name="skip.tests" value="true"/>
+   -->
+  
+  <!-- Compiler options -->
+  
+  <property name="compiler.debug" value="on"/>
+  <property name="compiler.generate.no.warnings" value="off"/>
+  <property name="compiler.args" value=""/>
+  <property name="compiler.max.memory" value="128m"/>
+  <patternset id="ignored.files">
+    <exclude name="**/CVS/**"/>
+    <exclude name="**/SCCS/**"/>
+    <exclude name="**/RCS/**"/>
+    <exclude name="**/rcs/**"/>
+    <exclude name="**/.DS_Store/**"/>
+    <exclude name="**/.svn/**"/>
+    <exclude name="**/.pyc/**"/>
+    <exclude name="**/.pyo/**"/>
+    <exclude name="**/*.pyc/**"/>
+    <exclude name="**/*.pyo/**"/>
+    <exclude name="**/.git/**"/>
+    <exclude name="**/*.hprof/**"/>
+    <exclude name="**/_svn/**"/>
+  </patternset>
+  <patternset id="library.patterns">
+    <include name="*.zip"/>
+    <include name="*.war"/>
+    <include name="*.egg"/>
+    <include name="*.ear"/>
+    <include name="*.swc"/>
+    <include name="*.jar"/>
+  </patternset>
+  <patternset id="compiler.resources">
+    <include name="**/?*.properties"/>
+    <include name="**/?*.xml"/>
+    <include name="**/?*.gif"/>
+    <include name="**/?*.png"/>
+    <include name="**/?*.jpeg"/>
+    <include name="**/?*.jpg"/>
+    <include name="**/?*.html"/>
+    <include name="**/?*.dtd"/>
+    <include name="**/?*.tld"/>
+    <include name="**/?*.ftl"/>
+  </patternset>
+  
+  <!-- JDK definitions -->
+  
+  <property name="jdk.bin.1.6" value="${jdk.home.1.6}/bin"/>
+  <path id="jdk.classpath.1.6">
+    <fileset dir="${jdk.home.1.6}">
+      <include name="jre/lib/management-agent.jar"/>
+      <include name="jre/lib/charsets.jar"/>
+      <include name="jre/lib/jsse.jar"/>
+      <include name="jre/lib/javaws.jar"/>
+      <include name="jre/lib/deploy.jar"/>
+      <include name="jre/lib/rt.jar"/>
+      <include name="jre/lib/resources.jar"/>
+      <include name="jre/lib/plugin.jar"/>
+      <include name="jre/lib/alt-rt.jar"/>
+      <include name="jre/lib/jce.jar"/>
+      <include name="jre/lib/ext/dnsns.jar"/>
+      <include name="jre/lib/ext/sunpkcs11.jar"/>
+      <include name="jre/lib/ext/localedata.jar"/>
+      <include name="jre/lib/ext/sunjce_provider.jar"/>
+    </fileset>
+  </path>
+  
+  <property name="project.jdk.home" value="${jdk.home.1.6}"/>
+  <property name="project.jdk.bin" value="${jdk.bin.1.6}"/>
+  <property name="project.jdk.classpath" value="jdk.classpath.1.6"/>
+  
+  
+  <!-- Project Libraries -->
+  
+  <path id="library.lib_jaspit.classpath">
+    <pathelement location="${basedir}/lib/commons-beanutils-1.7.jar"/>
+    <pathelement location="${basedir}/lib/commons-collections-2.1.jar"/>
+    <pathelement location="${basedir}/lib/commons-digester-1.7.jar"/>
+    <pathelement location="${basedir}/lib/commons-logging-1.0.2.jar"/>
+    <pathelement location="${basedir}/lib/iText-2.1.0.jar"/>
+    <pathelement location="${basedir}/lib/jasperreports-3.5.2.jar"/>
+    <pathelement location="${basedir}/lib/jdom.jar"/>
+    <pathelement location="${basedir}/lib/mysql-connector-java-3.1.11-bin.jar"/>
+    <pathelement location="${basedir}/lib/xerces.jar"/>
+  </path>
+  
+  <!-- Modules -->
+  
+  
+  <!-- Module Jaspit -->
+  
+  <dirname property="module.jaspit.basedir" file="${ant.file}"/>
+  
+  
+  <property name="module.jdk.home.jaspit" value="${project.jdk.home}"/>
+  <property name="module.jdk.bin.jaspit" value="${project.jdk.bin}"/>
+  <property name="module.jdk.classpath.jaspit" value="${project.jdk.classpath}"/>
+  
+  <property name="compiler.args.jaspit" value="${compiler.args}"/>
+  
+  <property name="jaspit.output.dir" value="${module.jaspit.basedir}/out/production/Jaspit"/>
+  <property name="jaspit.testoutput.dir" value="${module.jaspit.basedir}/out/test/Jaspit"/>
+  
+  <path id="jaspit.module.bootclasspath">
+    <!-- Paths to be included in compilation bootclasspath -->
+  </path>
+  
+  <path id="jaspit.module.classpath">
+    <path refid="${module.jdk.classpath.jaspit}"/>
+    <path refid="library.lib_jaspit.classpath"/>
+  </path>
+  
+  <path id="jaspit.runtime.module.classpath">
+    <pathelement location="${jaspit.output.dir}"/>
+    <pathelement location="${jaspit.testoutput.dir}"/>
+    <path refid="library.lib_jaspit.classpath"/>
+  </path>
+  
+  
+  <patternset id="excluded.from.module.jaspit">
+    <patternset refid="ignored.files"/>
+  </patternset>
+  
+  <patternset id="excluded.from.compilation.jaspit">
+    <patternset refid="excluded.from.module.jaspit"/>
+  </patternset>
+  
+  <path id="jaspit.module.sourcepath">
+    <dirset dir="${module.jaspit.basedir}">
+      <include name="src"/>
+    </dirset>
+  </path>
+  
+  
+  <target name="compile.module.jaspit" depends="compile.module.jaspit.production,compile.module.jaspit.tests" description="Compile module Jaspit"/>
+  
+  <target name="compile.module.jaspit.production" description="Compile module Jaspit; production classes">
+    <mkdir dir="${jaspit.output.dir}"/>
+    <javac destdir="${jaspit.output.dir}" debug="${compiler.debug}" nowarn="${compiler.generate.no.warnings}" memorymaximumsize="${compiler.max.memory}" fork="true" executable="${module.jdk.bin.jaspit}/javac">
+      <compilerarg line="${compiler.args.jaspit}"/>
+      <bootclasspath refid="jaspit.module.bootclasspath"/>
+      <classpath refid="jaspit.module.classpath"/>
+      <src refid="jaspit.module.sourcepath"/>
+      <patternset refid="excluded.from.compilation.jaspit"/>
+    </javac>
+    
+    <copy todir="${jaspit.output.dir}">
+      <fileset dir="${module.jaspit.basedir}/src">
+        <patternset refid="compiler.resources"/>
+        <type type="file"/>
+      </fileset>
+    </copy>
+  </target>
+  
+  <target name="compile.module.jaspit.tests" depends="compile.module.jaspit.production" description="compile module Jaspit; test classes" unless="skip.tests"/>
+  
+  <target name="clean.module.jaspit" description="cleanup module">
+    <delete dir="${jaspit.output.dir}"/>
+    <delete dir="${jaspit.testoutput.dir}"/>
+  </target>
+  
+  <target name="init" description="Build initialization">
+    <!-- Perform any build initialization in this target -->
+  </target>
+  
+  <target name="clean" depends="clean.module.jaspit" description="cleanup all"/>
+  
+  <target name="build.modules" depends="init, clean, compile.module.jaspit" description="build all modules"/>
+  
+  <target name="init.artifacts">
+    <property name="artifacts.temp.dir" value="${basedir}/__artifacts_temp"/>
+    <property name="artifact.output.jasp" value="${basedir}/out/artifacts/jasp"/>
+    <mkdir dir="${artifacts.temp.dir}"/>
+    <property name="temp.jar.path.jasp.jar" value="${artifacts.temp.dir}/jasp.jar"/>
+  </target>
+  
+  <target name="artifact.jasp" depends="init.artifacts, compile.module.jaspit" description="Build &apos;jasp&apos; artifact">
+    <property name="artifact.temp.output.jasp" value="${artifacts.temp.dir}/jasp"/>
+    <mkdir dir="${artifact.temp.output.jasp}"/>
+    <jar destfile="${temp.jar.path.jasp.jar}" duplicate="preserve" filesetmanifest="mergewithoutmain">
+      <zipfileset dir="${jaspit.output.dir}"/>
+    </jar>
+    <copy file="${temp.jar.path.jasp.jar}" tofile="${artifact.temp.output.jasp}/jasp.jar"/>
+  </target>
+  
+  <target name="build.all.artifacts" depends="artifact.jasp" description="Build all artifacts">
+    <mkdir dir="${artifact.output.jasp}"/>
+    <copy todir="${artifact.output.jasp}">
+      <fileset dir="${artifact.temp.output.jasp}"/>
+    </copy>
+    
+    <!-- Delete temporary files -->
+    <delete dir="${artifacts.temp.dir}"/>
+  </target>
+  
+  <target name="all" depends="build.modules, build.all.artifacts" description="build all"/>
+</project>
