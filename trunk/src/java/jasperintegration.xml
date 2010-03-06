@@ -85,7 +85,7 @@
     <pathelement location="${basedir}/lib/commons-digester-1.7.jar"/>
     <pathelement location="${basedir}/lib/commons-logging-1.0.2.jar"/>
     <pathelement location="${basedir}/lib/iText-2.1.0.jar"/>
-    <pathelement location="${basedir}/lib/jasperreports-3.5.2.jar"/>
+    <pathelement location="${basedir}/lib/jasperreports-3.0.1.jar"/>
     <pathelement location="${basedir}/lib/jdom.jar"/>
     <pathelement location="${basedir}/lib/mysql-connector-java-3.1.11-bin.jar"/>
     <pathelement location="${basedir}/lib/xerces.jar"/>
