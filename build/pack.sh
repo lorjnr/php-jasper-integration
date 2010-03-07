@@ -12,8 +12,8 @@ fi
 DIR=`mktemp -d`
 SOURCE="$DIR/source"
 mkdir "$SOURCE"
-TARGET="$DIR/target"
-mkdir "$TARGET"
+TARGET="$DIR/target/$PACKAGE_NAME"
+mkdir -p "$TARGET"
 
 echo "Use directory $SOURCE"
 
@@ -65,11 +65,11 @@ cp "$SOURCE/src/java/lib/jdom.jar" "$TARGET/jaspit/lib"
 
 cp "$SOURCE/var/README" "$TARGET"
 
-pushd "$TARGET"
-tar cpvBf "$PACKAGE_NAME" .
+pushd "$DIR/target"
+tar cpvBf "$PACKAGE_FILE_NAME" .
 popd
 
-mv "$TARGET/$PACKAGE_NAME" .
+mv "$DIR/target/$PACKAGE_FILE_NAME" .
 
 rm -rf "$DIR"
 
