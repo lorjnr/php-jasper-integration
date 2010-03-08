@@ -24,6 +24,7 @@
         $rep = new ExRep();
  	$rep->getParameters()->setStrParam("String-Parameter");
  	$rep->getParameters()->setIntParam(9999);
+        $rep->getTitleBand()->getTxtTitle()->setText("New Title");
         if ($rep->execute()) {
           $pdf = $rep->autosave_pdf();
 	  echo "$pdf\n";
