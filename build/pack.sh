@@ -62,6 +62,7 @@ cp "$SOURCE/src/java/lib/commons-collections-2.1.jar" "$TARGET/jaspit/lib"
 cp "$SOURCE/src/java/lib/commons-digester-1.7.jar" "$TARGET/jaspit/lib"
 cp "$SOURCE/src/java/lib/commons-logging-1.0.2.jar" "$TARGET/jaspit/lib"
 cp "$SOURCE/src/java/lib/jdom.jar" "$TARGET/jaspit/lib"
+cp "$SOURCE/src/java/lib/jasperreports-3.0.1.jar" "$TARGET/jaspit/lib"
 
 cp "$SOURCE/var/README" "$TARGET"
 
