@@ -32,19 +32,6 @@
 		</background>
 		<title>
 			<band height="114"  isSplitAllowed="true" >
-				<staticText>
-					<reportElement
-						x="71"
-						y="11"
-						width="393"
-						height="30"
-						key="TxtTitle"/>
-					<box></box>
-					<textElement textAlignment="Center">
-						<font size="24" isBold="true"/>
-					</textElement>
-				<text><![CDATA[Example-Report]]></text>
-				</staticText>
 				<textField isStretchWithOverflow="false" isBlankWhenNull="false" evaluationTime="Now" hyperlinkType="None"  hyperlinkTarget="Self" >
 					<reportElement
 						x="273"
@@ -96,6 +83,19 @@
 						<font size="14"/>
 					</textElement>
 				<text><![CDATA[Integer Parameter:]]></text>
+				</staticText>
+				<staticText>
+					<reportElement
+						x="71"
+						y="11"
+						width="393"
+						height="30"
+						key="TxtTitle"/>
+					<box></box>
+					<textElement textAlignment="Center">
+						<font size="18"/>
+					</textElement>
+				<text><![CDATA[Example-Report]]></text>
 				</staticText>
 			</band>
 		</title>
