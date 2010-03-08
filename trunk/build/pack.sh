@@ -34,6 +34,7 @@ fi
 mv "$SOURCE/var/iReport-3.0.0" "$TARGET"
 mv "$SOURCE/var/jaspit" "$TARGET"
 mv "$SOURCE/var/jaspServer" "$TARGET"
+mv "$SOURCE/var/sample" "$TARGET"
 mv "$SOURCE/src/jaspext" "$TARGET"
 mv "$SOURCE/src/jaspinteg" "$TARGET"
 
