@@ -38,6 +38,8 @@ mv "$SOURCE/var/sample" "$TARGET"
 mv "$SOURCE/src/jaspext" "$TARGET"
 mv "$SOURCE/src/jaspinteg" "$TARGET"
 
+rm "$TARGET/sample/example.odt"
+
 pushd "$SOURCE/src/java"
 ant -f jasperintegration.xml
 if [ $? -ne 0 ]; then
