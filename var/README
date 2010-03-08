@@ -32,4 +32,4 @@ Note: The Jasper-Server is thought to be a daemon. It's easily possible and desi
       and make the symlinks for the desired runlevels. There is such a script in $JASP_DIR/jaspServer/scripts
       called jasp_server. In Ubuntu you have to copy it to your /etc/init.d and replace the variable JASP_DIR with
       the correct location. To create the symlinks for the run-levels you can use the command
-      << rc-update.d jasp_server defaults >>.
+      << update-rc.d jasp_server defaults >>.
